@@ -1,6 +1,6 @@
 ## Minimal Viable Product: Financial Records API v1
 
-This first iteration of an MVP API is designed to help a client store financial data in AWS cloud. There will be more features added later in the following API versions after successful introduction and implementation in bussiness envrionment.  
+This first iteration of an MVP API is designed to help a client store financial data in AWS cloud. There will be more features added later in the following API versions after successful introduction and implementation in business envrionment.  
  
 ### Technology 
 <ul>
