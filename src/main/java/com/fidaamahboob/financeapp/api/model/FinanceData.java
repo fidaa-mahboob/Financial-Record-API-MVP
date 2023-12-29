@@ -3,15 +3,16 @@ package com.fidaamahboob.financeapp.api.model;
 public class FinanceData {
     private int id;
     private String date;
-    private int revenue;
-    private int expense;
+    private double revenue;
+    private double expense;
 
-    public FinanceData(int id, String date, int revenue, int expense) {
+    public FinanceData(int id, String date, double d, double e) {
         this.id = id;
         this.date = date;
-        this.revenue = revenue;
-        this.expense = expense;
+        this.revenue = d;
+        this.expense = e;
     }
+   
     public int getId() {
         return id;
     }
@@ -24,13 +25,13 @@ public class FinanceData {
     public void setDate(String date) {
         this.date = date;
     }
-    public int getRevenue() {
+    public double getRevenue() {
         return revenue;
     }
     public void setRevenue(int revenue) {
         this.revenue = revenue;
     }
-    public int getExpense() {
+    public double getExpense() {
         return expense;
     }
     public void setExpense(int expense) {
