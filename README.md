@@ -9,6 +9,7 @@ This first iteration of an MVP API is designed to help a client store financial 
    <li>AWS</li>
    <li>Github Action CI/CD</li>
    <li>JWT</li>
+   <li>>Terraform</li>
 </ul>
 
 ### Architecture
