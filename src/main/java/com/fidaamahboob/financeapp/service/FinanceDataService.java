@@ -1,13 +1,10 @@
 package com.fidaamahboob.financeapp.service;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
-
-import com.fidaamahboob.financeapp.api.error.DataExceptionHandler;
 import com.fidaamahboob.financeapp.api.model.FinanceData;
 
 @Service
