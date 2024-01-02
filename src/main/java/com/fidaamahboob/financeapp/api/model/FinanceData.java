@@ -16,24 +16,31 @@ public class FinanceData {
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getDate() {
         return date;
     }
+
     public void setDate(String date) {
         this.date = date;
     }
+
     public double getRevenue() {
         return revenue;
     }
+
     public void setRevenue(int revenue) {
         this.revenue = revenue;
     }
+
     public double getExpense() {
         return expense;
     }
+    
     public void setExpense(int expense) {
         this.expense = expense;
     }

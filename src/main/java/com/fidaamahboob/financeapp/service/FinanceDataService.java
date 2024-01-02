@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
+
+import com.fidaamahboob.financeapp.api.error.DataExceptionHandler;
 import com.fidaamahboob.financeapp.api.model.FinanceData;
 
 @Service
@@ -32,7 +34,7 @@ public class FinanceDataService {
             if(id == financeData.getId()){
                 optional = Optional.of(financeData);
                 return optional;
-            } 
+            }
         }
 
         return optional;
