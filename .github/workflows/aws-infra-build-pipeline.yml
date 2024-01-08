@@ -39,7 +39,7 @@ jobs:
       -   name: Add JAR file path variable
           run: | 
             echo "JAR_PATH=./build/libs/*.jar" >> "$GITHUB_ENV"
-            ls
+            ls .
 
       -   name: Build, tag, and push image to Amazon ECR
           env:
