@@ -1,9 +1,9 @@
 name: aws-build-infra-workflow
 run-name: AWS Infra Build Pipeline
 on:
-  pull_request:
-    types:
-      - closed
+  push:
+    branches:
+    -  cd
 jobs:
     ecr-push:
       runs-on: ubuntu-latest
@@ -32,14 +32,21 @@ jobs:
           with: 
               mask_password: 'false'
 
+      -   name: Gradle Build
+          run: |
+            ./gradlew build
+
+      -   name: Add JAR file path variable
+          run: | 
+            echo "JAR_PATH=./build/libs/*.jar" >> "$GITHUB_ENV"
+            ls
+
       -   name: Build, tag, and push image to Amazon ECR
           env:
             ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
             ECR_REPOSITORY: finance_api_repo
             IMAGE_TAG: latest
           run: |
-            ./gradlew build
-            echo "JAR_PATH=./build/libs/*.jar" >> "$GITHUB_ENV"
             docker build --build-arg JAR_FILE={JAR_PATH} -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
             docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
     
