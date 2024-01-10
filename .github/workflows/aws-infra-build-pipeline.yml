@@ -1,9 +1,7 @@
 name: aws-build-infra-workflow
 run-name: AWS Infra Build Pipeline
 on:
-  pull_request:
-    types:
-    -  closed
+  workflow_dispatch:
 jobs:
     ecr-push:
       runs-on: ubuntu-latest
