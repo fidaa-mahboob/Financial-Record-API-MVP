@@ -29,7 +29,7 @@ docker build --build-arg JAR_FILE=/build/libs/*.jar -t financial-api:latest .
 docker run -p 8080:8080 financial-api:latest
 ```
 
-### Challenges and Thought process
+### Steps and Thought process
 
 These are the steps I have taken so far in the project:
 
