@@ -1,6 +1,6 @@
 ## Minimal Viable Product: Financial Records API v1
 
-The Financial Recorder RESTful API stores financial data in AWS cloud. There will be more features added later in the following API versions see feature road map.  
+The Financial Recorder RESTful API stores financial data in AWS cloud. There will be more features added later in the following API versions see feature road map. This application will have a frontend ReactJS application for users to login and update financial records.
 
 ### Technology 
 <ul>
@@ -43,7 +43,7 @@ These are the steps I have taken so far in the project:
 - Build out the CRUD functionality for the API
 - Design and build custom data types to handle complex financial data.
 - Add OAuth to API for security.
-- Accounting functionality?
+- Accounting functionality - Requested feature by users
 
 
 
