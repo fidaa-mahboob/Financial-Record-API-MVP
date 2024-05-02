@@ -17,7 +17,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
       "entryPoint": [],
       "environment": [
         {
-          "name": "JAR_PATH"
+          "name": "JAR_PATH",
           "value": "build/libs/*.jar"
         }
       ],

@@ -7,8 +7,14 @@ terraform {
   }
 
   backend "s3" {
+    bucket = "fidaa-terrafrom-state-bucket"
+    key    = "dev/aws-infra"
+    region = "eu-west-2"
+
+    dynamodb_table = "terraform-locks"
+    encrypt        = true
   }
 }
 provider "aws" {
-  region = var.aws_region
+  region     = var.aws_region
 }
