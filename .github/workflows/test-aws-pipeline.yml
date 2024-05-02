@@ -23,7 +23,7 @@ jobs:
             with: 
               role-to-assume: ${{ secrets.AWS_ROLE }}
               aws-region: ${{ secrets.AWS_REGION }}
-              role-session-name: Github-OIDC-Terraform
+              role-session-name: Github-OIDC-TERRAFORM
        
         -   name: Check out code
             uses: actions/checkout@v4 
