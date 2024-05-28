@@ -5,7 +5,7 @@ The Financial Recorder RESTful API stores financial data in AWS cloud. There wil
 ### Technology 
 <ul>
    <li>Java</li>
-   <li>Spring Boot</li>
+   <li>Spring Framework</li>
    <li>AWS</li>
    <li>Github Action CI/CD</li>
    <li>JWT</li>
