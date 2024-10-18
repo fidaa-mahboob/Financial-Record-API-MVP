@@ -1,16 +1,27 @@
 package com.fidaamahboob.financeapp.api.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class FinanceData {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String date;
-    private double revenue;
-    private double expense;
+    private int income;
+    private int expense;
+    private String description;
 
-    public FinanceData(int id, String date, double d, double e) {
+    public FinanceData(int id, String date, int income, int expense, String description) {
         this.id = id;
         this.date = date;
-        this.revenue = d;
-        this.expense = e;
+        this.income = income;
+        this.expense = expense;
+        this.description = description;
+
     }
    
     public int getId() {
@@ -29,19 +40,27 @@ public class FinanceData {
         this.date = date;
     }
 
-    public double getRevenue() {
-        return revenue;
+    public int getIncome() {
+        return income;
     }
 
-    public void setRevenue(int revenue) {
-        this.revenue = revenue;
+    public void setIncome(int income) {
+        this.income = income;
     }
 
-    public double getExpense() {
+    public int getExpense() {
         return expense;
     }
     
     public void setExpense(int expense) {
         this.expense = expense;
     }
+
+    public String getDescription() {
+        return description;
+    }
+    
+    public void setDescription(String description) {
+        this.description = description;
+    } 
 }
