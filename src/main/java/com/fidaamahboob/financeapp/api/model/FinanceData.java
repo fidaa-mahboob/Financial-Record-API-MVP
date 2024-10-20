@@ -15,7 +15,7 @@ public class FinanceData {
     private int expense;
     private String description;
 
-    public FinanceData(long id, String date, int income, int expense, String description) {
+    public FinanceData(Long id, String date, int income, int expense, String description) {
         this.id = id;
         this.date = date;
         this.income = income;
@@ -24,11 +24,11 @@ public class FinanceData {
 
     }
    
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
