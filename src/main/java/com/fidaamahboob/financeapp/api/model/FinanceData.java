@@ -9,13 +9,13 @@ import jakarta.persistence.Id;
 public class FinanceData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String date;
     private int income;
     private int expense;
     private String description;
 
-    public FinanceData(int id, String date, int income, int expense, String description) {
+    public FinanceData(long id, String date, int income, int expense, String description) {
         this.id = id;
         this.date = date;
         this.income = income;
@@ -24,11 +24,11 @@ public class FinanceData {
 
     }
    
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
