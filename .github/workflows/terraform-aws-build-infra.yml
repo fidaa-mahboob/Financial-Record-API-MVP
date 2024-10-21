@@ -1,12 +1,7 @@
 name: Build AWS using Terraform
 run-name: Test AWS build pipeline
-on: 
-  push:
-    branches: 
-    -  main
-  pull_request:
-    branches:
-    -  main
+on:
+  workflow_dispatch:
 
 permissions:
   id-token: write # This is required for requesting the JWT
