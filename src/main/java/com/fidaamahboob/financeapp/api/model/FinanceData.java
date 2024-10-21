@@ -7,9 +7,14 @@ import jakarta.persistence.Id;
 
 @Entity
 public class FinanceData {
+
+    public FinanceData() {
+    }
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     private String date;
     private int income;
     private int expense;
