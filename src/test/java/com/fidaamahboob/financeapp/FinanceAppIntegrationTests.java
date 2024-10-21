@@ -1,19 +1,9 @@
 package com.fidaamahboob.financeapp;
 
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.test.web.servlet.MockMvc;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -41,6 +31,7 @@ class FinanceAppIntegrationTests {
 	@Autowired
 	private TestRestTemplate restTemplate;
 
+	@SuppressWarnings("resource")
 	@Container
 	static MySQLContainer<?> mySQLContainer = new MySQLContainer<>("mysql:8.0")
 			.withDatabaseName("testdb")
