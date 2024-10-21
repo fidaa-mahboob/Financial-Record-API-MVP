@@ -29,6 +29,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '3.3.4'
     implementation group: 'com.mysql', name: 'mysql-connector-j', version: '9.1.0'
+	testImplementation 'org.testcontainers:junit-jupiter:1.19.0' // Testcontainers core
+    testImplementation 'org.testcontainers:mysql:1.19.0' // MySQL module for Testcontainers
 }
 
 tasks.named('test') {
