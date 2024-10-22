@@ -21,8 +21,6 @@ import org.springframework.http.HttpStatus;
 import com.fidaamahboob.financeapp.api.model.FinanceData;
 import com.fidaamahboob.financeapp.api.repository.FinancialDataRepository;
 
-import org.springframework.transaction.annotation.Transactional;
-
 @Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class FinanceAppIntegrationTests {
