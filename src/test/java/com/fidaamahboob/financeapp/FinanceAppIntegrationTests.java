@@ -15,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import com.fidaamahboob.financeapp.api.model.FinanceData;
@@ -48,21 +47,6 @@ class FinanceAppIntegrationTests {
 	}
 
 	@Test
-	void shouldreturnRecordById() {
-		// given
-		FinanceData data = new FinanceData(1L, "13/08/2024", 2200, 500, "Paid salary and rent");
-		financialDataRepository.save(data);
-
-		// when
-		ResponseEntity<FinanceData> resp = restTemplate.getForEntity("/finance/v1/data/record/1", FinanceData.class);
-
-		// Then
-		assertThat(resp.getStatusCode()).isEqualTo(HttpStatus.OK);
-		assertThat(resp.getBody()).isNotNull();
-		assertThat(resp.getBody().getIncome()).isEqualTo(2200);
-	}
-
-	@Test
 	public void testCreateFinanceData() {
 		FinanceData data = new FinanceData(1L, "25/03/2021", 2200, 500, "new record");
 
@@ -79,25 +63,26 @@ class FinanceAppIntegrationTests {
 
 	@Test
 	public void testGetFinanceDataById() {
-
-		//Given
-		FinanceData data = new FinanceData(1L, "25/03/2021", 2200, 500, "new record");
+		// given
+		FinanceData data = new FinanceData(1L, "13/08/2024", 2200, 500, "Paid salary and rent");
 		financialDataRepository.save(data);
 
+		// when
+		ResponseEntity<FinanceData> resp = restTemplate.getForEntity("/finance/v1/data/record/1", FinanceData.class);
 
-		//When
-		ResponseEntity<FinanceData> response = restTemplate.getForEntity("/finance/v1/data/record/1", FinanceData.class);
-
-
-		//Then
-		assertEquals(HttpStatus.OK, response.getStatusCode());
-		assertNotNull(response.getBody());
-		assertEquals(1L, response.getBody().getId());
+		// Then
+		assertThat(resp.getStatusCode()).isEqualTo(HttpStatus.OK);
+		assertThat(resp.getBody()).isNotNull();
+		assertThat(resp.getBody().getIncome()).isEqualTo(2200);
 	}
 
 	@Test
 	public void testGetAllFinanceData_EmptyList() {
-		ResponseEntity<FinanceData[]> response = restTemplate.getForEntity("/finance/v1/data/record/all", FinanceData[].class);
+
+		financialDataRepository.deleteAll();
+
+		ResponseEntity<FinanceData[]> response = restTemplate.getForEntity("/finance/v1/data/record/all",
+				FinanceData[].class);
 
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 		assertTrue(response.getBody().length == 0);
