@@ -15,10 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import com.fidaamahboob.financeapp.api.model.FinanceData;
 import com.fidaamahboob.financeapp.api.repository.FinancialDataRepository;
+
+import org.springframework.transaction.annotation.Transactional;
 
 @Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -46,9 +49,14 @@ class FinanceAppIntegrationTests {
 		System.setProperty("spring.datasource.password", mySQLContainer.getPassword());
 	}
 
+	@BeforeEach
+	public void clearDatabase() {
+		financialDataRepository.deleteAll();
+	}
+
 	@Test
 	public void testCreateFinanceData() {
-		FinanceData data = new FinanceData(1L, "25/03/2021", 2200, 500, "new record");
+		FinanceData data = new FinanceData(2L, "25/03/2021", 2200, 500, "new record");
 
 		ResponseEntity<FinanceData> response = restTemplate.postForEntity("/finance/v1/data/record/create", data,
 				FinanceData.class);
@@ -78,7 +86,6 @@ class FinanceAppIntegrationTests {
 
 	@Test
 	public void testGetAllFinanceData_EmptyList() {
-
 		financialDataRepository.deleteAll();
 
 		ResponseEntity<FinanceData[]> response = restTemplate.getForEntity("/finance/v1/data/record/all",
